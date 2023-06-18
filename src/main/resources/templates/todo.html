@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Hello, world!</title>
+</head>
+<body>
+<h1>Danh sách các công việc cần làm: </h1>
+
+<ul>
+    <li th:each="todo: ${todoList}" th:object="${todo}">
+        <span th:text="*{title}"></span> : <span th:text="*{detail}"></span>
+        <a th:href="@{/delete-todo(id=*{id})}">delete</a>
+    </li>
+</ul>
+<a th:href="@{/add-todo}" class="btn btn-success"> + Thêm công việc</a>
+
+</body>
+</html>
